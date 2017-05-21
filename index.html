@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Shopping List Check Off</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <script src="./js/angular.min.js"></script>
+    <script src="app.js"></script>
+    <style>
+      .emptyMessage {
+        font-weight: bold;
+        color: red;
+        font-size: 1.2em;
+      }
+      li {
+        margin-bottom: 7px;
+        font-size: 1.2em;
+      }
+      li > button {
+        margin-left: 6px;
+      }
+      button > span {
+        color: green;
+      }
+    </style>
+  </head>
+<body ng-app="NarrowItDownApp">
+   <div class="container">
+
+     <div class="row">
+
+       <!-- To Buy List -->
+       <div class="col-md-6" ng-controller="NarrowItDownController as vm">
+         <h1>Narrow Down Your Chinese Menu Choice</h1>
+
+         <div class="form-group">
+           <input type="text" placeholder="search term" ng-model="vm.searchText" class="form-control">
+         </div>
+         <div ng-show="vm.notFoundBool">
+           Nothing found!
+         </div>
+         <div class="form-group narrow-button">
+           <button class="btn btn-primary" ng-click="vm.getMatchedMenuItems()">Narrow It Down For Me!</button>
+         </div>
+
+
+         <!-- found-items should be implemented as a component -->
+         <found-items found-items-list="vm.foundItemsList" on-remove="vm.removeItem()"></found-items>
+       </div>
+
+
+     </div>
+   </div>
+
+</body>
+</html>
