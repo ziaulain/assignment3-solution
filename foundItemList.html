@@ -1,6 +1,6 @@
 <ol>
   <li ng-repeat="item in list.foundItemsList" trackby>
-    {{ item.name }}, {{item.description}}
+    {{item.short_name}}, {{ item.name }}, {{item.description}}
     <button ng-click="list.onRemove($index);">Don't want this one!</button>
   </li>
 </ol>
